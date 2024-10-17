@@ -16,6 +16,11 @@ public class RecursiveGenerator extends MazeGenerator {
     private static final int[][] DIRS = {{0, 2}, {2, 0},  {0, -2}, {-2, 0}};
 
     @Override
+    public String toString() {
+        return "Recursive Generator";
+    }
+
+    @Override
     public Maze generate(int height, int width) {
         Cell[][] grid = new Cell[height * 2 + 1][width * 2 + 1];
 

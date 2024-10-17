@@ -13,6 +13,11 @@ import static backend.academy.MazeApp.Cell.WALL;
 public class KruskalGenerator extends MazeGenerator {
 
     @Override
+    public String toString() {
+        return "Kruskal Generator";
+    }
+
+    @Override
     public Maze generate(int height, int width) {
         Cell[][] grid = new Cell[height * 2 + 1][width * 2 + 1];
         UnionFind unionFind = new UnionFind(height * width);

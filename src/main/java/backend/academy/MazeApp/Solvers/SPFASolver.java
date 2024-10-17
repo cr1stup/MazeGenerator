@@ -12,6 +12,11 @@ import java.util.Queue;
 public class SPFASolver extends MazeSolver {
 
     @Override
+    public String toString() {
+        return "Shortest-Path-Faster-Algorithm";
+    }
+
+    @Override
     public List<Coordinate> solve(Maze maze, Coordinate start, Coordinate end) {
         costs = new int[maze.height()][maze.width()];
         cameFrom = doSPFASolve(maze.grid(), start);

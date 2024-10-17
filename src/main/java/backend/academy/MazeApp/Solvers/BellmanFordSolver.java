@@ -11,6 +11,11 @@ import static backend.academy.MazeApp.Cell.WALL;
 public class BellmanFordSolver extends MazeSolver {
 
     @Override
+    public String toString() {
+        return "Bellman-Ford Algorithm";
+    }
+
+    @Override
     public List<Coordinate> solve(Maze maze, Coordinate start, Coordinate end) {
         costs = new int[maze.height()][maze.width()];
 
