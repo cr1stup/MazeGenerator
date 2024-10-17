@@ -6,7 +6,6 @@ import backend.academy.MazeApp.Maze;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
@@ -33,7 +32,7 @@ public abstract class MazeSolver {
     }
 
     protected void checkAllDirections(int i, int j, Cell[][] grid) {
-        checkDirections(i, j, grid, new LinkedList<>());
+        checkDirections(i, j, grid, null);
     }
 
     protected void checkAllDirections(int i, int j, Cell[][] grid, Queue<Coordinate> q) {
@@ -62,7 +61,9 @@ public abstract class MazeSolver {
             if (newCost < tempCosts[row][col] && !cameFrom.containsValue(newPosition)) {
                 tempCosts[row][col] = newCost;
                 cameFrom.put(newPosition, parent);
-                q.add(new Coordinate(row, col));
+                if (q != null) {
+                    q.add(new Coordinate(row, col));
+                }
             }
         }
     }
