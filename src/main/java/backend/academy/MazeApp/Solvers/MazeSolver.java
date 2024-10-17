@@ -74,6 +74,10 @@ public abstract class MazeSolver {
 
     protected List<Coordinate> reconstructPath(Map<Coordinate, Coordinate> cameFrom, Coordinate start, Coordinate end) {
         List<Coordinate> path = new ArrayList<>();
+        if (!cameFrom.containsValue(start) || !cameFrom.containsKey(end)) {
+            return path;
+        }
+
         Coordinate curr = end;
 
         while (curr != null && curr != start) {
