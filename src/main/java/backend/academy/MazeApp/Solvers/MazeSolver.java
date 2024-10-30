@@ -54,7 +54,7 @@ public abstract class MazeSolver {
                 continue;
             }
 
-            int newCost = costs[i][j] + grid[row][col].getCost();
+            int newCost = costs[i][j] + grid[row][col].cost();
             Coordinate newPosition = new Coordinate(row, col);
             Coordinate parent = new Coordinate(i, j);
 

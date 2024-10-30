@@ -1,36 +1,23 @@
 package backend.academy.MazeApp;
 
+import lombok.Getter;
+
+@Getter
 public enum Cell {
-    WALL('║'),
-    PATH(' '),
-    COIN('C'),
-    TRAP('T'),
-    STAR('*'),
-    START('A'),
-    END('B');
+    WALL('║', Integer.MAX_VALUE),
+    STAR('*', Integer.MAX_VALUE),
+    START('A', Integer.MAX_VALUE),
+    END('B', Integer.MAX_VALUE),
+    PATH(' ', 1),
+    COIN('C', -5),
+    TRAP('T', 5);
 
     private final char view;
-    private static final int WALL_COST = Integer.MAX_VALUE;
-    private static final int PATH_COST = 1;
-    private static final int COIN_COST = -5;
-    private static final int TRAP_COST = 5;
+    private final int cost;
 
-    Cell(char view) {
+    Cell(char view, int cost) {
         this.view = view;
-    }
-
-    public int getCost() {
-        int cost;
-
-        switch (this) {
-            case WALL -> cost = WALL_COST;
-            case PATH -> cost = PATH_COST;
-            case COIN -> cost = COIN_COST;
-            case TRAP -> cost = TRAP_COST;
-            default -> cost = 0;
-        }
-
-        return cost;
+        this.cost = cost;
     }
 
     @Override
